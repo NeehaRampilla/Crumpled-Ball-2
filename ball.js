@@ -8,7 +8,7 @@ class Ball {
     this.body = Bodies.circle(x, y,radius, options);
     this.width = radius;
     this.height = radius;
-    
+    this.image = loadImage("paper.png");
     World.add(world, this.body);
   }
   display(){
@@ -17,9 +17,8 @@ class Ball {
     push();
     translate(pos.x, pos.y);
     rotate(angle);
-    ellipseMode(RADIUS);
-    fill(255);
-    ellipse(0, 0, this.width, this.height);
+    imageMode(CENTER);
+    image(this.image,0, 0, this.width, this.height);
     pop();
   }
 };

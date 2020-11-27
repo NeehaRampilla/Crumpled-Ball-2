@@ -3,9 +3,14 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 var crumpledBall,ground
+var trashcan;
+
+function preload (){
+	trashcan=loadImage("trashcangreen.png");
+}
 
 function setup() {
-	createCanvas(800, 700);
+	createCanvas(1400, 700);
     rectMode(CENTER);
 
 	groundSprite=createSprite(width/2, height-35, width,10);
@@ -20,9 +25,9 @@ function setup() {
 	//Create a Ground
 	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
 	 World.add(world, ground);
-	 side1=new Ground (600,650,200,10);
-     side2=new Ground(500,600,10,100);
-	 side3=new Ground(700,600,10,100);
+	 side1=new Ground (1200,650,200,10);
+     side2=new Ground(1100,600,10,100);
+	 side3=new Ground(1300,600,10,100);
 	 
 		Engine.run(engine);
   
@@ -30,14 +35,16 @@ function setup() {
 
 
 function draw() {
-  background(0);
+  background(255);
 
 crumpledBall.display();
   drawSprites();
   ellipseMode()
-  side1.display();
-  side2.display();
-  side3.display();
+  //side1.display();
+  //side2.display();
+ // side3.display();
+  imageMode(CENTER);
+  image(trashcan,1200,600,230,110);
 }
 
 function keyPressed() {
